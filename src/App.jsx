@@ -20,8 +20,8 @@ function App() {
       <Box
         sx={{
           width: '100%',
-          maxWidth: '1600px',
-          px: { xs: 2, sm: 4, md: 6 }
+          maxWidth: 'lg',
+          px: { xs: 12, sm: 6, md: 4 }
         }}
       >
         <Header />
