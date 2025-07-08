@@ -25,7 +25,6 @@ function App() {
           width: '100%',
           maxWidth: '1100px', // better max width
           px: { xs: 2, sm: 4, md: 6 },
-          mx: 'auto'
         }}
       >
         <Header />
