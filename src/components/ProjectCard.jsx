@@ -20,7 +20,7 @@ function ProjectCard({ title, description, tags, github, bg }) {
         borderRadius: 3,
         boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
         height: '100%',
-        p: 2,
+        p: 0,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
