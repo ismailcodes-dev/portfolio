@@ -22,7 +22,7 @@ To run this project locally, follow these steps:
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/ismailcodes-dev/portfolio.git(https://github.com/ismailcodes-dev/portfolio.git)
-    cd your-repo-name
+    cd portfolio
     ```
 
 2.  **Install dependencies:**
