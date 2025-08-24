@@ -5,23 +5,19 @@ import profileImage from "../assets/profile.png";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
+const ACCENT_COLOR = '#33ff99';
+
 const Header = () => {
   return (
     <Box
       component={motion.div}
       initial={{ opacity: 0, y: -30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      viewport={{ once: true }}
       sx={{
         textAlign: "center",
-        py: 10,
+        py: { xs: 6, md: 10 },
         px: 2,
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(6px)",
-        borderRadius: 4,
-        mx: 2,
-        boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
       }}
     >
       <Avatar
@@ -31,18 +27,17 @@ const Header = () => {
           width: 120,
           height: 120,
           margin: "0 auto",
-          border: "4px solid #ffffff",
-          boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
+          border: `3px solid ${ACCENT_COLOR}`,
+          boxShadow: `0 0 20px ${ACCENT_COLOR}33`,
         }}
       />
 
       <Typography
-        variant="h4"
+        variant="h3"
         sx={{
           fontWeight: 700,
           mt: 3,
           color: "#ffffff",
-          textShadow: "1px 1px 5px rgba(0,0,0,0.6)",
         }}
       >
         Mohammed Ismail K
@@ -52,16 +47,14 @@ const Header = () => {
         variant="h6"
         sx={{
           color: "#eeeeee",
-          mt: 2,
+          mt: 1,
           fontWeight: 500,
-          textShadow: "1px 1px 3px rgba(0,0,0,0.4)",
         }}
       >
         <TypeAnimation
           sequence={[
             'Full Stack Developer', 2000,
             'UI/UX Designer', 2000,
-            'CS Graduate', 2000,
             'React Enthusiast', 2000,
           ]}
           speed={50}
@@ -69,22 +62,23 @@ const Header = () => {
         />
       </Typography>
 
+      {/* --- BUTTON CODE RESTORED BELOW --- */}
       <Button
         variant="contained"
         startIcon={<DownloadIcon />}
-        href="/resume.pdf"
-        target="_blank"
+        href="/resume.pdf" // Tells the button which file to link to
+        target="_blank"    // Opens the file in a new tab
         sx={{
           mt: 4,
           px: 4,
           py: 1.5,
-          backgroundColor: "#1976d2",
+          backgroundColor: ACCENT_COLOR,
           fontWeight: 600,
-          color: "#fff",
+          color: "#111111",
           borderRadius: "30px",
-          boxShadow: "0 6px 16px rgba(0,0,0,0.25)",
+          boxShadow: `0 6px 16px ${ACCENT_COLOR}33`,
           "&:hover": {
-            backgroundColor: "#1565c0",
+            backgroundColor: "#ffffff",
           },
         }}
       >

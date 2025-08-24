@@ -6,43 +6,35 @@ import {
   Button,
   Box,
 } from '@mui/material';
-import { motion } from 'framer-motion';
 
-function ProjectCard({ title, description, tags, github, bg }) {
+const ACCENT_COLOR = '#33ff99';
+
+function ProjectCard({ title, description, tags, github }) {
   return (
     <Card
-      component={motion.div}
-      whileHover={{ scale: 1.03 }}
-      transition={{ duration: 0.4 }}
       sx={{
-        background: 'rgba(255, 255, 255, 0.75)',
-        backdropFilter: 'blur(8px)',
-        borderRadius: 3,
-        boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+        background: 'rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(10px)',
+        borderRadius: 4,
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        boxShadow: 'none',
         height: '100%',
-        p: 0,
+        p: 2,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        borderLeft: `8px solid ${bg || '#1976d2'}`,
+        transition: 'border-color 0.3s ease',
+        '&:hover': {
+          borderColor: `${ACCENT_COLOR}80`,
+        },
       }}
     >
       <CardContent>
-        <Typography
-          variant="h6"
-          fontWeight={700}
-          sx={{
-            color: '#1a237e',
-            mb: 1,
-          }}
-        >
+        <Typography variant="h6" fontWeight={600} sx={{ color: '#ffffff', mb: 1 }}>
           {title}
         </Typography>
 
-        <Typography
-          variant="body2"
-          sx={{ color: '#424242', mb: 2 }}
-        >
+        <Typography variant="body2" sx={{ color: '#aaaaaa', mb: 2 }}>
           {description}
         </Typography>
 
@@ -53,11 +45,11 @@ function ProjectCard({ title, description, tags, github, bg }) {
               label={tag}
               size="small"
               sx={{
-                mr: 1,
-                mb: 1,
-                backgroundColor: bg || '#e3f2fd',
-                color: '#0d47a1',
+                mr: 1, mb: 1,
+                backgroundColor: 'rgba(51, 255, 153, 0.1)',
+                color: ACCENT_COLOR,
                 fontWeight: 500,
+                border: `1px solid ${ACCENT_COLOR}50`
               }}
             />
           ))}
@@ -68,13 +60,13 @@ function ProjectCard({ title, description, tags, github, bg }) {
           target="_blank"
           variant="outlined"
           sx={{
-            mt: 3,
-            fontWeight: 600,
-            color: '#1976d2',
-            borderColor: '#1976d2',
+            mt: 3, fontWeight: 600,
+            color: '#ffffff',
+            borderColor: '#ffffff55',
             '&:hover': {
-              backgroundColor: '#e3f2fd',
-              borderColor: '#1976d2',
+              backgroundColor: ACCENT_COLOR,
+              borderColor: ACCENT_COLOR,
+              color: '#111111'
             },
           }}
         >

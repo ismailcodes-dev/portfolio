@@ -1,50 +1,43 @@
-import { Grid, Box, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
-import ProjectCard from './ProjectCard';
+import { Box, Typography } from '@mui/material';
+import HoverListItem from './HoverListItem';
+import { projects } from '../portfolioData';
+
+// --- IMPORTANT ---
+// 1. Add your new preview image paths here
+import careerArcPreview from '../assets/CareerArc.png';
+import inrPreview from '../assets/INR.png';
+
+const projectImages = {
+  "CareerArc – AI Career Platform": careerArcPreview,
+  "INR Harmonization – Dataset Tool": inrPreview,
+};
+// -----------------
 
 function ProjectsSection() {
   return (
-    <Box
-      component={motion.div}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-      sx={{ py: 6, px: 2, textAlign: 'center' }}
-    >
+    <Box component="section" sx={{ width: '100%' }}>
       <Typography
         variant="h5"
         sx={{
           fontWeight: 600,
-          mb: 4,
-          color: '#1a237e',
-          textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
+          mb: 2,
+          color: '#eeeeee',
+          textAlign: 'center'
         }}
       >
         Featured Projects 🚀
       </Typography>
 
-      <Grid container spacing={4} justifyContent="center">
-        <Grid item xs={12} md={6}>
-          <ProjectCard
-            title="CareerArc – AI Career Platform"
-            description="Built with React vite, Node.js, Express, MongoDB & integrated with Python ML to analyze resumes and recommend job roles."
-            tags={['Node.js', 'Python ML', 'React.vite']}
-            github="https://github.com/ismailcodes-dev/careerarc"
-            bg="#90caf9"
+      <Box>
+        {projects.map((project, index) => (
+          <HoverListItem
+            key={index}
+            title={project.title}
+            imageSrc={projectImages[project.title]} // Matches title to image
+            href={project.github}
           />
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <ProjectCard
-            title="INR Harmonization – Dataset Tool"
-            description="Python tool to process, clean, and standardize INR image datasets for AI training."
-            tags={['Python', 'Image Processing']}
-            github="https://github.com/ismailcodes-dev/inr-harmonization"
-            bg="#a5d6a7"
-          />
-        </Grid>
-      </Grid>
+        ))}
+      </Box>
     </Box>
   );
 }

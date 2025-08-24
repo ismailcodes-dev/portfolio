@@ -1,45 +1,65 @@
 import React from "react";
-import { Box, Typography, Chip, Stack } from "@mui/material";
+import { Box, Typography, Chip } from "@mui/material";
 import TerminalTwoToneIcon from "@mui/icons-material/TerminalTwoTone";
+import { skills } from "../portfolioData";
+import Marquee from "react-fast-marquee";
 
-const skills = [
-  "JavaScript", "Python", "React", "Node.js", "Express", "MongoDB", "SQL",
-  "REST APIs", "Postman", "Git", "HTML5", "CSS3", "UI/UX Design",
-  "Photoshop", "After Effects"
-];
+const ACCENT_COLOR = '#33ff99';
+
+const SkillChip = ({ label }) => (
+  <Chip
+    label={label}
+    sx={{
+      mx: 1.5,
+      fontWeight: 500,
+      backgroundColor: 'rgba(51, 255, 153, 0.1)',
+      color: ACCENT_COLOR,
+      border: `1px solid ${ACCENT_COLOR}50`,
+      padding: '16px 8px',
+      fontSize: '1rem',
+    }}
+  />
+);
 
 const SkillsSection = () => {
+  const firstRow = [...skills].slice(0, 8);
+  const secondRow = [...skills].slice(8);
+
   return (
-    <Box sx={{ py: 6, px: 2, textAlign: "center" }}>
+    <Box component="section" sx={{ py: 6 }}>
       <Typography
         variant="h5"
         sx={{
           fontWeight: 600,
-          mb: 3,
-          color: "#1a237e",
+          mb: 4,
+          color: '#eeeeee',
+          textAlign: "center"
         }}
       >
         My Toolbox <TerminalTwoToneIcon fontSize="small" />
       </Typography>
-      <Stack
-        direction="row"
-        flexWrap="wrap"
-        justifyContent="center"
-        spacing={1}
-      >
-        {skills.map((skill, index) => (
-          <Chip
-            key={index}
-            label={skill}
-            sx={{
-              m: 0.5,
-              backgroundColor: "#f3e5f5",
-              color: "#4a148c",
-              fontWeight: 500,
-            }}
-          />
-        ))}
-      </Stack>
+
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+        <Marquee
+          gradient={false}
+          speed={30} // Changed from 50 to 30
+          pauseOnHover={true}
+        >
+          {firstRow.map((skill) => (
+            <SkillChip key={skill} label={skill} />
+          ))}
+        </Marquee>
+        <Marquee
+          gradient={false}
+          speed={30} // Changed from 50 to 30
+          pauseOnHover={true}
+          direction="right"
+        >
+          {secondRow.map((skill) => (
+            <SkillChip key={skill} label={skill} />
+          ))}
+        </Marquee>
+      </Box>
     </Box>
   );
 };
